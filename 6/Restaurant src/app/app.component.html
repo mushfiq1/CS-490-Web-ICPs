@@ -1,0 +1,36 @@
+
+<div class="jumbotron text-center">
+  <h1> Crave it find it !! </h1>
+  <p>Restaurants near you</p>
+</div>
+
+<div class="container">
+
+  <div class="row">
+    <span class="col-9 col-lg-4 col-sm">City/Zip:<input type="text" required  name="cname" [(ngModel)]="cityname"></span>
+    <button  class="btn btn-primary" (click)="getLatLong()">
+      Search
+    </button>
+
+  <div class="row">
+    Latitude : <input class="col-md-3" [(ngModel)]="latitude" name="latitude" placeholder="0">
+    Longitude : <input class="col-md-3" [(ngModel)]="longitude" name="longitude" placeholder="0">
+    <button class="col-md-1 col-lg-2" (click)="getRestaurants()"  class="btn btn-primary"> Get Restaurants </button>
+
+  </div>
+</div>
+
+
+  <div class="row">
+    <div class="col-lg-3 col-md-3">
+      <div  class="card text-warning bg-warning mb-3" style="max-width: 100rem;"  *ngFor="let rest of restaurant">
+        <div class="card-header"> <h4>{{rest.name}}</h4></div>
+        <div class="card-body text-primary">
+          <h5 class="card-title">Cuisine : {{rest.categories}}</h5>
+          <p class="card-text">Location - {{rest.address}}, {{rest.city}}, {{rest.country}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
